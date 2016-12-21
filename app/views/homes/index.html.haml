@@ -1,0 +1,11 @@
+.row
+  - @homes.each do |home|
+    .col-sm-4.col-sm-4.col-sm-4
+      .thumbnail
+        = image_tag(attachment_url(home, :house_image), style: "height: 200px")
+        .caption
+          %h4.pull-right= number_to_currency(home.price)
+          %h4
+            = link_to home.address, home
+          %p
+            = home.description

@@ -29,8 +29,22 @@
             Minizill
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
-              = link_to "Home", "#"
+            %li
+              = link_to homes_path, class: "navbar-brand"  do
+                Home
+            %li
+              = link_to new_home_path, class: "navbar-brand" do
+                %span.glyphicon.glyphicon-plus
+                  New Home
+
+          %ul.nav.navbar-nav.navbar-right
+            - if logged_in?
+              %li
+                = link_to 'Logout', logout_path
+            - else
+              %li
+                = link_to 'Login with Github', login_path
+
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do

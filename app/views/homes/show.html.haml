@@ -1,0 +1,25 @@
+.page-header
+  = link_to homes_path, class: 'btn btn-default' do
+    Back
+  %h1 House Description
+
+
+%dl.dl-horizontal-offset
+  %dt Address:
+  %dd= @home.address
+  %dt Price:
+  %dd= @home.price
+  %dt Agent:
+  %dd= @home.agent
+  %dt Description:
+  %dd= @home.description
+  %dt Space:
+  %dd= @home.space
+  %dt Parking:
+  %dd= @home.parking
+  %dt Bedrooms:
+  %dd= @home.bedrooms
+  %dt Bathrooms:
+  %dd= @home.bathrooms
+.img-thumbnail
+  = image_tag attachment_url(@home, :house_image), size: "200x200"
